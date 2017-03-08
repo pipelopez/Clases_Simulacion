@@ -1,0 +1,118 @@
+yoiner.gomez22@gmail.com
+
+Soporta:
+Paradigmas funcionales orientados a objetos y controlados por eventos.
+
+En HOME está la opción Set Path, ahí se pueden agregar las carpetas y subcarpetas
+
+La funcion tiene que tener el encabezado de función, un script no, porque este es un main, no necesita ser llamado
+
+Vectores v= 1:10; vector con números de 1 a 10
+v= 1:0.5:10; de 1 a 10 cada 0.5
+v2=[2,3,5,9]; o con espacios en vez de "," si separo con ";" lo pone en vector columna
+ones(3); crea una matriz de 3*3 llena de 1s
+ones(1,3); 1 fila y 3 columnas
+zeros(1,3); llena de ceros una fila y tres columnas crea matriz de ceros
+exp(ans); aplica el exponencial a cada elemento del último resultado
+a(1,1,1)=10; objeto de tres dimensiones y se puede llenar
+clear; limpia
+clear all; limpia todo
+m2= [2,3,4;6 4 5;9 3 4]; crea matrix con esos valores
+m2' transpuesta de una matrix
+transpose para no cambiar los complejos de la matrix
+rand(50); matriz 50*50 y la llena con random ~u(0,1)
+randn(50); ~N(0,1)
+m(3,5); me muestra el elemento en la fila 3 columna 5
+m(3,:) fila tres, todas las columnas
+m(:,3) columna tres, todas las filas
+m(3,:)=1; fila tres, todas las columnas asigne 1
+m(3,:)=rand(1,10); asignar a la fila 3 en todas sus columnas numeros entre 1 y 10
+m(2:8,3:7); sacar la submatriz que va de la fila 2 a la 8 y de la columna 3 a la 7
+m([5,4],[3,6]); devuelve de la fila 5 las columnas 3 y 6 y justo debajo la fila 4 con las columnas 3 y 6
+m([0101],[0,1,0,1]) deme filas 2 y 4 y columnas 2 y 4 pero debe tener tantos números como el tamaño de la matriz
+mean(x) valor medio de los elementos en x, es el promedio y se have sobre un vector o matriz
+mean(x,2) devuelve una columna con los resultados de las medias  de las filas
+ind = mean(m)>0.28; retorna los mayores a 0.28
+m(:,ind)
+m(:,mean(m)>0.28);
+std desviación estandar
+help mean me retorna la ayuda para mean
+false y true crean matrices con ceros y uno, pero que son funciones lógicas
+eye(4) matrices de 4*4 con la diagonal llena de unos, matriz identidad
+diag(matrix) devuelve la diagonal de la matriz en forma de vector
+diag(vector) retorna una matriz con los valores del vector en la diagonal y todo lo demás en ceros
+repmat(a,#filas,#columnas) retorna una matriz que replica en cada fila y columna la matriz a completa
+save(nombre archivo); para guardar todo el workspace
+save(nombre archivo, variables) guarda sólo las variables que almacenemos
+sum retorna un escalar valor de la fila, debo decirle si suma por filas o por columnas
+prod retorna el resultado de multiplicar una matriz por otra o por un vector del tamaño de la columna
+Para multiplicar elemento a elemento hago A.*B por ejemplo también para la división punto a punto A./B
+end:-1:1 retornar desde el final hasta 1 decrementando en 1
+m(3,:)=[]; elimina la fila 3
+m(3,m(3,:)>5)=1;  modifica la matriz m en la fila 3 y los reemplaza con 1 donde se cumpla que sean mayor a 5 los valores
+m(:) concatena por filas, para hacerlo por columnas primero transpongo m=m' y luego hago esto
+cumsum  suma acumulada
+
+
+function c=mifuncion(a)
+for i=1:2:10 %incrementos de 1 a 10 subiendo de a 2%
+    c=a+i;
+end
+
+if i=1:2:10
+    c=a+i;
+else
+end
+
+La siguiente funcion recibe otra funcion
+function c=mifuncion(a,b)
+c=a(b,3);
+
+
+function d=mifuncion2(a,b)
+d=a*b;
+
+la llamo así
+mifuncion(@mifuncion2,4);
+
+resultado es 12
+
+f=@(x) x.^2 funcion para elevar al cuadrado, la llamo f(4); y el resultado será 16
+
+
+También se pueden usar celdas
+a=cell(3,2); crea la celda a con 3 filas y 2 columnas
+a{1,1}=m; a es una celda de 2 filas y 1 columna, en la posición 2,1 me pone la matriz m
+En estas celdas se puden guardar cualquier tipo de dato
+
+También se pueden crear estructuras
+struct E
+E.Nombre='nombre';
+E.Experimento(1).Nombre=''
+
+
+>> E.Experimento(1).Nombre='name1';
+>> E.Experimento(1).Matriz=randn(2,3);
+>> E.Experimento(1).Vector=randn(1,3);
+>> E.Experimento(1).Flags=randn(1,3)>0.3;
+>> E.Experimento(2).Nombre='name2';
+>> E.Experimento(1).Matriz=randn(2,3);
+>> E.Experimento(1).Vector=randn(1,3);
+>> E.Experimento(1).Flags=randn(1,3)>0.3;
+
+Estructura de estructuras
+>> E2(1)=E;
+>> E2(2)=E;
+
+fielnames retorna los campos de la estructura
+isfield sirve para preguntar si un campo existe en una estructura.
+isnan
+isinf
+orderfields 
+S.newfield adiciona un campo a la estructura s
+
+Otra estructura y la más poderosa
+containers
+
+GRAFICAS
+Edición y luego axes propierties para cambiar el color

@@ -1,0 +1,7 @@
+for iteraciones
+	W=W-(eta/N)*((misigmoide(W*x2'))'-y)'*x2; %--Con esto me ahorro el cliclo de pesos
+	for pesos
+		W(j)=W(j)-(eta/N)*((misigmoide(W*x2'))'-y)'*x2(:,j); %--- con esto me ahorro el ciclo de muestras
+		%--- vector columna, al transponerlo queda en fila (eta/N)*((misigmoide(W-x2'))'-y)'
+		for muestras
+			sum=sum+(misigmoide(W*x2(i,:)')-y(i))*x(i,j); %---con esto me puedo ahorrar el for de variables 
